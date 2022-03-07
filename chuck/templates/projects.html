@@ -4,8 +4,188 @@
 <title>ChuckGrady</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/********** TITLE/BACKGROUND ************/
+
+div.title{
+	font-size: 40px;
+	color: #0ff;
+	font-family: Palatino;
+	padding-top: 2vw;
+	padding-left: 2vw;
+}
+
+body{
+	display: flex;
+	background-color: black;
+	background-image: url(static/images/bryce.png), url(static/images/crop_2.png);
+	background-repeat: no-repeat, no-repeat;
+	background-position: 5vw 5vw, 45vw 0vw;
+	background-size: 80vw,65vw;	
+}
+
+/********** Boxes ************/
+
+div.big_box{
+	position: absolute;
+	width:  80vw;
+	height:  39vw;
+	margin-left: 10vw;
+	margin-top: 5vw;
+	min-width: 70vw;
+	min-height: 30vw;
+}
+
+div.category{
+	position: relative;
+	height: 90%;
+	width: 33%;
+	margin-top: 3%;
+	background-color: black;
+	float: left;
+}
+
+div.category_title{
+	font-size: 30px;
+	color: #0ff;
+	font-family: Palatino;
+	padding-top: 5%;
+	text-align: center;
+}
+
+div.project{
+	font-size: 20px;
+	color: #0ff;
+	font-family: Palatino;
+	text-align: left;
+	padding-top: 5px;
+	padding-left: 5px;
+	position: relative;
+	height: 37%;
+	width: 85%;
+	margin-left: 8%;
+	margin-top: 10%;
+	background-color: black;
+	border-style: solid;
+	border-color: #0ff;
+	border-width: 2px;
+	border-radius: 10px 10px 10px 10px;
+	overflow: scroll;
+
+}
+
+div.project:hover{
+	box-shadow: 0px 10px 30px 0px #0ff
+}
+
+div.project_title{
+	font-size: 20px;
+	color: #0ff;
+	font-family: Palatino;
+	text-align: left;
+}
+
+ul li{
+	font-size: 15px;
+	font-family: Palatino;
+	text-align: left;
+	list-style-type: circle;
+	margin-top: 1px;
+	padding-top: 1px;
+
+}
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+
+</style>
 </head>
 <body>
-<div>PROJECT PAGE CURRENTLY UNAVAILABLE</div>
+<div class = title>ChuckGrady.com</div>
+<div class= big_box>
+
+	<div class=category>
+		<div class=category_title>WebDev</div>
+		<a href="/projects/api/">
+			<div class = project>
+				
+				<div class=project_title>APIs</div>
+				<ul>
+					<li>Finance API</li>
+					<li>Wikipedia API</li>	
+					<li>more!</li>
+				</ul>
+				
+			</div>
+		</a>
+		<a href="/projects/mr/">
+			<div class = project>
+				<div class=project_title>MapReduce Server</div>
+				<ul>
+					<li>custom multiprocessed server</li>	
+				</ul>
+			</div>
+		</a>
+	</div>
+
+	<div class=category>
+		<div class=category_title>Computer Vision</div>
+		<a href="/projects/nn/">
+			<div class = project>
+				<div class=project_title>Neural Network</div>
+				<ul>
+					<li>a CNN for semantic segmenation</li>
+					<li>model determines land cover classification from satellite imagery</li>	
+				</ul>
+			</div>
+		</a>
+		<a href="/projects/piano/">
+			<div class = project>
+				<div class=project_title>Virtual Piano Player</div>
+				<ul>
+					<li>my own program for animating my piano performances</li>	
+				</ul>
+			</div>
+		</a>
+	</div>
+	<div class=category>
+		<div class=category_title>Optimization</div>
+		<a href="/projects/v2p/">
+			<div class = project>
+				<div class=project_title>Video2Panorama</div>
+				<ul>
+					<li>the frames from a video are stitched to form a single image</li>	
+				</ul>
+			</div>
+		</a>		
+		<a href="/projects/tsp/">
+			<div class = project>
+				<div class=project_title>Travelling Salesperson</div>
+				<ul>
+					<li>solution to the NP-hard TSP problem</li>
+					<li>optimized for time and memory in C++</li>	
+				</ul>
+			</div>
+		</a>
+	</div>
+</div>
+
 </body>
 </html>
