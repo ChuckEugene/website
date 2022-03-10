@@ -14,7 +14,7 @@ UPLOAD_FOLDER = CHUCK_ROOT/'var'
 TSP_INPUT = UPLOAD_FOLDER/'coords.txt'
 TSP_OUTPUT = UPLOAD_FOLDER/'out.txt'
 TSP_EXE = UPLOAD_FOLDER/'tsp'
-ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
+ALLOWED_EXTENSIONS = set(['txt','png', 'jpg', 'jpeg', 'gif'])
 MAX_CONTENT_LENGTH = 16 * 1024 * 1024
 
 # Database file is var/insta485.sqlite3
