@@ -9,9 +9,142 @@
   box-sizing: border-box;
 }
 
+/********** TITLE/BACKGROUND ************/
+
+div.title{
+  font-size: 40px;
+  color: #0ff;
+  font-family: Palatino;
+  padding-top: 2vw;
+  padding-left: 2vw;
+}
+
+body{
+  display: flex;
+  background-color: black;
+  background-image: url(static/images/bryce.png), url(static/images/crop_2.png);
+  background-repeat: no-repeat, no-repeat;
+  background-position: 5vw 5vw, 45vw 0vw;
+  background-size: 80vw,65vw; 
+}
+
+/********** Boxes ************/
+
+div.big_box{
+  position: absolute;
+  width:  80vw;
+  height:  39vw;
+  margin-left: 10vw;
+  margin-top: 5vw;
+  min-width: 70vw;
+  min-height: 90vw;
+}
+
+div.category{
+  position: relative;
+  height: 90%;
+  width: 50%;
+  margin-top: 3%;
+  background-color: black;
+  float: left;
+}
+
+div.category_title{
+  font-size: 30px;
+  color: #0ff;
+  font-family: Palatino;
+  padding-top: 5%;
+  text-align: center;
+}
+
+div.project{
+  font-size: 20px;
+  color: #0ff;
+  font-family: Palatino;
+  text-align: left;
+  padding-top: 5px;
+  padding-left: 5px;
+  position: relative;
+  height: 37%;
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 5%;
+  background-color: black;
+  border-style: solid;
+  border-color: #0ff;
+  border-width: 2px;
+  border-radius: 10px 10px 10px 10px;
+  overflow: scroll;
+
+}
+
+div.project:hover{
+  box-shadow: 0px 10px 30px 0px #0ff
+}
+
+div.project_title{
+  font-size: 20px;
+  color: #0ff;
+  font-family: Palatino;
+  text-align: left;
+}
+
+ul li{
+  font-size: 15px;
+  font-family: Palatino;
+  text-align: left;
+  list-style-type: circle;
+  margin-top: 1px;
+  padding-top: 1px;
+
+}
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
 </style>
 </head>
 <body>
-<div>THIS IS THE API PAGE</div>
+<div class = title>ChuckGrady.com</div>
+<div class= big_box>
+
+  <div class=category>
+    <div class=category_title>Finance API</div>
+    <div class = project>
+      <p>
+        <b>Data: </b> <small>stock prices and forward returns for S&P 500 companies spanning the past 5 years</small>
+      </p>
+      <p><b>Parameters: </b><br></p>
+      <p font_size = 20px>
+      <ul>
+        <li> <b>abbr</b>(required) the company's ticker</li>
+        <li> <b>t1</b>(optional, default = 0) the start date for the span of the data. date format (YYYY-MM-DD)</li>
+        <li> <b>t2</b>(optional, default = current date) the end date for the span of the data</li>
+        <li> <b>d_type</b>(optional, default = price) prices, and percent returns from one day, one week, one month, 3 months and six months</li>
+      </ul>
+      </p>
+    </div>
+  </div>
+ 
+
+  <div class=category>
+    <div class=category_title>Travelling Salesman API</div>
+      <div class = project>
+
+      </div>
+  </div>
+</div>
 </body>
 </html>

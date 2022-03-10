@@ -36,3 +36,6 @@ Icon
 # keys
 *.pem
 
+#C++ executable
+/var/tsp
+

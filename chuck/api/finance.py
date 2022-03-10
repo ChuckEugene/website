@@ -6,16 +6,17 @@ from datetime import datetime
 
 @chuck.app.route('/api/finance/', methods=['GET'])
 def finance_api():
-
+	#required paramters (FINRA abbreviation)
+	#optional paramters t1, t2, p, 
 	args = flask.request.args
 
 	#defaults
 	t1 = '2000-01-01'
 	t2 = '2023-01-01'
 	dtype = 'p'
-	dtype_dict = {'p':'price', 'd':'day', 
-				  'w':'week', 'm':'month',
-				  '3m':'three','6m':'six'
+	dtype_dict = {'p':'price', 'd':'one', 
+				  'w':'seven', 'm':'month',
+				  'three':'three','six':'six'
 				 }
 
 	#Company name
@@ -36,25 +37,28 @@ def finance_api():
 	if 'd_type' in args:
 		dtype = args['d_type']
 
+	dtype2 = dtype_dict[dtype]
 	epoch_1 = datetime.strptime(t1, '%Y-%m-%d').timestamp()
 	epoch_2 = datetime.strptime(t2, '%Y-%m-%d').timestamp()
-	dtype2 = dtype_dict[dtype]
-
-
-	stmt1 = f"""SELECT date(day,'unixepoch') as date,{dtype2} as {dtype} FROM {sym}
-				WHERE day >= {epoch_1} AND day <= {epoch_2};
-			"""
-
-	stmt2 = f'''SELECT name FROM companies 
-				WHERE symbol = '{sym}';
-			'''
+	
+	params = {'data':[dtype2, dtype, epoch_1, epoch_2]}
+	# return params
 	try:
 		conn = chuck.model.get_db()
 		c = conn.cursor()
+#WHERE day >= ? AND day <= ?;
+		query = f"""SELECT date(day,'unixepoch') as date, {dtype2} as {dtype} FROM {sym}
+					WHERE day >= {epoch_1} AND day <=  {epoch_2};	   
+				"""
+		query2 = '''SELECT name FROM companies 
+							 WHERE symbol = ?;
+				 '''
+		res = c.execute(query).fetchall()
+
 		c2 = conn.cursor()
-		res = c.execute(stmt1).fetchall()
-		comp = c2.execute(stmt2).fetchone()
+		comp = c2.execute(query2,(sym,)).fetchone()
 		chuck.model.close_db(0)
+
 	except Exception as e:
 		return f"DATABASE_ERROR: {e}", 400
 
