@@ -22,10 +22,7 @@ div.title{
 body{
   display: flex;
   background-color: black;
-  background-image: url(static/images/bryce.png), url(static/images/crop_2.png);
-  background-repeat: no-repeat, no-repeat;
-  background-position: 5vw 5vw, 45vw 0vw;
-  background-size: 80vw,65vw; 
+
 }
 
 /********** Boxes ************/
@@ -33,16 +30,16 @@ body{
 div.big_box{
   position: absolute;
   width:  80vw;
-  height:  39vw;
+  height:  70vw;
   margin-left: 10vw;
   margin-top: 5vw;
-  min-width: 70vw;
-  min-height: 90vw;
+/*  min-width: 70vw;
+  min-height: 90vw;*/
 }
 
 div.category{
   position: relative;
-  height: 90%;
+  height: 100%;
   width: 50%;
   margin-top: 3%;
   background-color: black;
@@ -65,7 +62,7 @@ div.project{
   padding-top: 5px;
   padding-left: 5px;
   position: relative;
-  height: 37%;
+  height: 80%;
   width: 90%;
   margin-left: 5%;
   margin-top: 5%;
@@ -89,13 +86,14 @@ div.project_title{
   text-align: left;
 }
 
+
 ul li{
   font-size: 15px;
   font-family: Palatino;
   text-align: left;
   list-style-type: circle;
   margin-top: 1px;
-  padding-top: 1px;
+  padding-top: 5px;
 
 }
 a:link {
@@ -114,36 +112,123 @@ a:active {
   text-decoration: none;
 }
 
+p + ul {
+    margin-top: -15px;
+}
+img.in{
+  padding-left: 10%;
+}
+img.out{
+  padding-left: 20%;
+}
+
+p.hi{
+  padding-left: 20%;
+  
+}
+img.in{
+  padding-left: ;
+}
+
+.row{
+  display: flex;
+  height: 40%;
+  width: 80%;
+  padding-left: 10%;
+}
+.col{
+  flex: 20%;
+  padding: 20px;
+  
+}
+
 </style>
 </head>
 <body>
+<a href="/">
 <div class = title>ChuckGrady.com</div>
+</a>
 <div class= big_box>
 
   <div class=category>
     <div class=category_title>Finance API</div>
     <div class = project>
       <p>
-        <b>Data: </b> <small>stock prices and forward returns for S&P 500 companies spanning the past 5 years</small>
+        <b>Overview: </b> 
+          <ul>
+          <li>This API seeks to make acquiring financial data easier for analysis</li>  
+          <li>S&P 500 data is scraped from yahoo finance daily and inserted into a SQL database</li>
+          <li>All requests, calculations, and updates are multiprocessed for efficiency</li>
+        </ul>
       </p>
-      <p><b>Parameters: </b><br></p>
-      <p font_size = 20px>
-      <ul>
-        <li> <b>abbr</b>(required) the company's ticker</li>
-        <li> <b>t1</b>(optional, default = 0) the start date for the span of the data. date format (YYYY-MM-DD)</li>
-        <li> <b>t2</b>(optional, default = current date) the end date for the span of the data</li>
-        <li> <b>d_type</b>(optional, default = price) prices, and percent returns from one day, one week, one month, 3 months and six months</li>
-      </ul>
+
+      <p>
+        <b>Data: </b> 
+          <ul> 
+          <li>Company ticker and name</li>
+          <li>Price at close any day in the past 5 years</li>
+          <li>Percent returns for one day, one week, one month, three months, and six months</li>
+        </ul>
       </p>
+
+      <p><b>Parameters: </b>
+        <ul> 
+          <li> <b>abbr</b>(required) the company's ticker</li>
+          <li> <b>t1</b> given in format YYYY-MM-DD, default value is 0</li>
+          <li> <b>t2</b> default value is current date </li>
+          <li> <b>d_type</b>(optional) p, d, w, m, three, six for price and one day, one month, three month and six month returns</li>
+        </ul>
+      </p>
+
+      <p>
+        <b>Example:</b>
+      </p>
+      <img class = in src="/static/images/request.png" width="80%">
+      <p>
+        <b>Returns:</b>
+      </p>
+      <img class = out src="/static/images/json.png" height="40%" width="70%">
     </div>
   </div>
- 
 
   <div class=category>
-    <div class=category_title>Travelling Salesman API</div>
+    <div class=category_title>Traveling Salesman API</div>
       <div class = project>
 
-      </div>
+        <p> 
+          <b>Overview:</b>
+            <ul>
+              <li> The travelling salesman, an np-Hard problem, seeks to find the shortest route between several points</li>
+              <li> Coded in C++, my solution utilizes the 2-opt heuristic and is optimized for time and memory</li>
+              <li> 35 vertices from request to response takes under 3 seconds</li>
+            </ul> 
+        </p> 
+
+        <p> 
+          <b>Data:</b>
+            <ul>
+              <li> A text file is uploaded with coordinates on a graph </li>
+              <li> The total distance of the optimal route is returned along with the indices of the coordinates that are connected </li>
+            </ul> 
+        </p> 
+
+        <p> 
+          <b>Parameters:</b> 
+        </p> 
+            <ul>
+              <li> A single text file attached to a request to /api/TSP/</li>
+              <li> Format is number of vertices on first line, then x y coordinates on every sequential line</li>
+            </ul> 
+
+        <p> 
+          <b>Example:</b> 
+        </p> 
+        <img class = in src="/static/images/tsp.png" width="80%">
+        <p style="text-indent: 20%; white-space: break-spaces;">Input                      Output</p>
+        <div class="row">
+          <img class = col src="/static/images/txt.png" width="10%">
+          <img class = col src="/static/images/route.png" width="30%">
+        </div>
   </div>
 </div>
 </body>

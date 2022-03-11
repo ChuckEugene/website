@@ -22,15 +22,17 @@ div.title{
 body{
 	display: flex;
 	background-color: black;
-	background-image: url(static/images/bryce.png), url(static/images/crop_2.png);
-	background-repeat: no-repeat, no-repeat;
-	background-position: 5vw 5vw, 45vw 0vw;
-	background-size: 80vw,65vw;	
+	background-image: url(/static/images/sun.png);
+	background-repeat: no-repeat;
+	background-position: 0vw 5vw; 
+	background-size:100vw 40vw
+
 }
 
 /********** Boxes ************/
 
 div.big_box{
+	background-color: transparent;
 	position: absolute;
 	width:  80vw;
 	height:  39vw;
@@ -41,11 +43,12 @@ div.big_box{
 }
 
 div.category{
+	background-color: transparent;
+	opacity: 100%;
 	position: relative;
 	height: 90%;
 	width: 33%;
 	margin-top: 3%;
-	background-color: black;
 	float: left;
 }
 
@@ -118,7 +121,9 @@ a:active {
 </style>
 </head>
 <body>
+<a href="/">
 <div class = title>ChuckGrady.com</div>
+</a>
 <div class= big_box>
 
 	<div class=category>
@@ -129,7 +134,7 @@ a:active {
 				<div class=project_title>APIs</div>
 				<ul>
 					<li>Finance API</li>
-					<li>TSP API/li>	
+					<li>TSP API</li>	
 					<li>more!</li>
 				</ul>
 				
@@ -158,9 +163,9 @@ a:active {
 		</a>
 		<a href="/projects/piano/">
 			<div class = project>
-				<div class=project_title>Video2Panorama</div>
+				<div class=project_title> Video2Panorama</div>
 				<ul>
-					<li>the frames from a video are stitched to form a single image/li>	
+					<li>the frames from a video are stitched to form a single image</li>	
 				</ul>
 			</div>
 		</a>
@@ -171,7 +176,7 @@ a:active {
 			<div class = project>
 				<div class=project_title>Virtual Piano Player</div>
 				<ul>
-					<li>the frames from a video are stitched to form a single image</li>	
+					<li>VFX in python to animate my piano playing</li>	
 				</ul>
 			</div>
 		</a>		
@@ -179,8 +184,7 @@ a:active {
 			<div class = project>
 				<div class=project_title>March Madness Model</div>
 				<ul>
-					<li>solution to the NP-hard TSP problem</li>
-					<li>optimized for time and memory in C++</li>	
+					<li>Currently in development for 2022!</li>
 				</ul>
 			</div>
 		</a>
