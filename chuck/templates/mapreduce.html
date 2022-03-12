@@ -5,13 +5,198 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-* {
-  box-sizing: border-box;
+*
+  {box-sizing: border-box;}
+
+
+  div.title{
+  font-size: 40px;
+  color: #0ff;
+  font-family: Palatino;
+  padding-top: 2vw;
+  padding-left: 2vw;
 }
 
+body{
+  display: flex;
+  background-color: black;
+
+}
+
+/********** Boxes ************/
+
+div.big_box{
+  position: absolute;
+  width:  80vw;
+  height:  70vw;
+  margin-left: 10vw;
+  margin-top: 5vw;
+/*  min-width: 70vw;
+  min-height: 90vw;*/
+}
+
+div.category{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  margin-top: 3%;
+  background-color: black;
+  float: left;
+}
+
+div.category_title{
+  font-size: 30px;
+  color: #0ff;
+  font-family: Palatino;
+  padding-top: 5%;
+  padding-right: 5%;
+  text-align: center;
+}
+
+div.project{
+  font-size: 20px;
+  color: #0ff;
+  font-family: Palatino;
+  text-align: left;
+  padding-top: 5px;
+  padding-left: 5px;
+  position: relative;
+  height: 80%;
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 5%;
+  background-color: black;
+  border-style: solid;
+  border-color: #0ff;
+  border-width: 2px;
+  border-radius: 10px 10px 10px 10px;
+  overflow: scroll;
+
+}
+
+div.project:hover{
+  box-shadow: 0px 10px 30px 0px #0ff
+}
+
+div.project_title{
+  font-size: 20px;
+  color: #0ff;
+  font-family: Palatino;
+  text-align: left;
+}
+
+
+ul li{
+  font-size: 15px;
+  font-family: Palatino;
+  text-align: left;
+  list-style-type: circle;
+  margin-top: 1px;
+  padding-top: 5px;
+
+}
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+p + ul {
+    margin-top: -15px;
+}
+
+p + ul.ex{
+  margin-top: 30px;
+}
+img.in{
+  padding-left: 10%;
+}
+img.out{
+  padding-left: 20%;
+}
+
+p.hi{
+  padding-left: 20%;
+  
+}
+img.in{
+  padding-left: ;
+}
+
+.row{
+  display: flex;
+  height: 40%;
+  width: 80%;
+  padding-left: 10%;
+}
+.col{
+  flex: 20%;
+  padding: 20px;
+  
+}
+}
 </style>
 </head>
 <body>
-<div>THIS IS THE MAPREDUCE PAGE</div>
+<a href="/">
+<div class = title>ChuckGrady.com</div>
+</a>
+<div class= big_box>
+<div class=category_title>MapReduce Server</div>
+
+  <div class=category>
+    <div class = project>
+      <p>
+        <b>Overview: </b> 
+          <ul>
+            <li>The MapReduce model is a method of processing large amounts of data in parallel on multiple machines</li>
+            <br>
+            <li>Data is first distributed to different systems where it is "mapped", which could be a sorting or filtering function</li>
+            <br>
+            <li>The resultant data files are then "reduced" or summarized in some way</li>
+          </ul> 
+      </p>
+
+      <p>
+        <b>Methodology: </b> 
+          <ul>
+            <li>Two modules were made: master and worker. The master is a process that spawns threads which are the workers</li>
+            <br>
+            <li>The masters' job is to partition data for the workers, specify which phase of the MapReduce method is being performed, and return a single output</li>
+            <br>
+            <li>The workers perform the functions in a map executable, and subsequently a reduce executable</li>
+          </ul> 
+      </p>
+      <p>
+        <b>Example: </b>
+        <ul>
+          <li>The server is started up </li>
+          <br>
+          <br>
+          <li>The input parameters of the MapReduce are passed</li>
+          <br>
+          <br>
+          <li>Mapping phase: the workers recieve their instructions</li>
+          <br>
+          <br>
+          <li>Reduce phase: the workers start summarizing the data</li>
+          <br>
+          <br>
+          <li>The output is complete and the master and workers can be killed</li>
+        </ul>
+    </div>
+  </div>
+
+</div>
 </body>
 </html>
